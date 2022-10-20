@@ -8,7 +8,7 @@ import com.sinoroo.demo1.domain.Member;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
+
 public class MemoryMemberRepository implements MemberRepository {
 
     //private static Map<Long, Member> store = new ConcurrentHashMap<>();
