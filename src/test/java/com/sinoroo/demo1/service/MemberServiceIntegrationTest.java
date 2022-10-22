@@ -1,42 +1,22 @@
 package com.sinoroo.demo1.service;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 import org.assertj.core.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.sinoroo.demo1.domain.Member;
 import com.sinoroo.demo1.repository.MemberRepository;
-import com.sinoroo.demo1.repository.MemoryMemberRepository;
 
-public class MemberServiceTest {
+@SpringBootTest
+@Transactional
+public class MemberServiceIntegrationTest {
 
-    MemberService memberService;
-    MemoryMemberRepository memberRepository;
-
-    @BeforeEach
-    public void beforeEach(){
-        memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memberRepository);
-    }
-
-
-    @AfterEach
-    public void afterEach(){
-        memberRepository.clearStore();
-    }
-
-    @Test
-    void testFindMembers() {
-
-    }
-
-    @Test
-    void testFindOne() {
-
-    }
+    @Autowired MemberService memberService;
+    @Autowired MemberRepository memberRepository;
 
     @Test
     void testDuplicateMemberException(){
